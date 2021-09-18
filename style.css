@@ -1,0 +1,316 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    margin: 0pt;
+    position: absolute;
+}
+
+.hidden{
+    display: none;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+/* Menubar */
+#menu {
+    width: 100vw;
+    display: flex;
+    background-color: rgb(31, 31, 31);
+}
+
+#menu .button{
+    height: auto;
+    background-color: rgb(58, 58, 58);
+    padding: 3pt 10pt;
+    margin: 3pt;
+    color: rgb(255, 184, 102);
+    cursor: pointer;
+}
+
+#menu .button:hover{
+    background-color: rgb(87, 87, 87);
+}
+
+/* Editor */
+
+#editor {
+    flex-grow: 1;
+    width: 100vw;
+    height:0;
+    background-color: rgb(61, 61, 61);
+    display: flex;
+}
+
+/* Tooltip */
+.tooltip{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(27, 27, 27);
+    padding: 5pt;
+    border: 2pt solid lightgray;
+    border-radius: 5pt;
+}
+
+.tooltip .name{
+    color: yellow;
+    font-size: 15pt;
+}
+
+.tooltip .instructions{
+    color: lightgray;
+    font-size: 10pt;
+}
+
+
+
+/* Sidebar */
+
+#sidebar {
+    width: 250pt;
+    min-width: 250pt;
+    height: 100%;
+    background-color: rgb(43, 42, 42);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#sidebar .sidebar_entry{
+    width: 222pt;
+    background-color: rgb(68, 67, 67);
+    margin: 5pt;
+    padding: 5pt;
+    user-select: none;
+    cursor: pointer;
+}
+
+#sidebar .sidebar_entry.assign_slices_button{
+    height: 40pt;
+    color: white;
+    line-height: 40pt;
+    text-align: center;
+
+}
+
+#sidebar .sidebar_entry.selected{
+    background-color: rgb(138, 132, 124);
+}
+
+#sidebar .sidebar_entry.open{
+    background-color: #6d6933;
+}
+
+#sidebar .sidebar_entry.slice{
+    height: 60pt;
+}
+
+#sidebar .sidebar_entry.layout{
+    height: 40pt;
+}
+
+#sidebar .sidebar_entry.biome{
+    height: 25pt;
+}
+
+
+
+
+#sidebar .sidebar_entry.add_layout_button{
+    height: 25pt;
+    color: rgb(189, 189, 189);
+    background-color: rgb(55, 55, 55);
+    line-height: 25pt;
+    text-align: center;
+
+}
+
+
+#sidebar .spacer{
+    width: 222pt;
+    height: 5pt;
+    margin: 5pt;
+    padding: 5pt;
+    user-select: none;
+}
+
+#sidebar .search_bar{
+    width: 233pt;
+    padding: 5pt;
+    margin: 5pt;
+    background-color: rgb(36, 36, 36);
+    color: rgb(199, 199, 199);
+    border: 2pt solid black;
+    outline: 0pt;
+}
+
+
+#sidebar .sidebar_entry.slice .grid{
+    height: 60pt;
+}
+
+#sidebar .sidebar_entry.layout .grid{
+    height: 40pt;
+}
+
+#sidebar .sidebar_entry.biome .grid{
+    height: 20pt;
+}
+
+#sidebar .sidebar_entry .name{
+    display: inline-block;
+    position: relative;
+    height: 40pt;
+    line-height: 40pt;
+    text-align: left;
+    margin-left: 5pt;
+    vertical-align: middle;
+    color: white;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#sidebar .sidebar_entry.slice .name{
+    top: -25pt;
+    width: 150pt;
+} 
+
+#sidebar .sidebar_entry.layout .name{
+    top: -15pt;
+    width: 177pt;
+} 
+
+#sidebar .sidebar_entry.biome .name{
+    top: -10pt;
+    width: 197pt;
+} 
+
+/* Assign Slices */
+#assignSlices{
+    margin: auto;
+}
+
+#assignSlices table{
+    border-spacing: 0 5pt;
+    cursor: default;    
+    user-select: none;
+    margin: auto;
+}
+
+#assignSlices table tr .weirdness_name{
+    text-align: right;
+    color: white;
+    padding-right: 10pt;
+    width: 10pt;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+
+#assignSlices table tr .slice_icon{
+    background-color: rgb(34, 34, 34);
+    padding: 10pt;
+}
+
+#assignSlices table tr .slice_icon canvas{
+    height: 70pt;
+}
+
+#assignSlices table tr .slice_name{
+    background-color: rgb(34, 34, 34);
+    color: white;
+    width: 250pt;
+}
+
+#assignSlices table tr .slice_mode_select{
+    background-color: rgb(34, 34, 34);
+    padding-right: 10pt;
+}
+
+#assignSlices table tr .slice_mode_select img{
+    height: 25pt;
+}
+
+/* Editor */
+
+#layoutEditor{
+    flex-grow: 1;
+    height: 100%;
+    min-width: 300pt;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#layoutEditor #layoutName{
+    display: block;
+    width: 100%;
+    padding: 10pt;
+    margin: 5pt;
+    background-color: rgb(36, 36, 36, 0);
+    color: rgb(255, 184, 102);
+    border: 0pt;
+    outline: 0pt;
+    font-size: 20pt;
+    text-align: center;
+}
+
+#layoutEditor #layoutEditorCanvas{
+    margin: auto;
+    padding-left: 5pt;
+    padding-right: 5pt;
+    width: calc(100% - 10pt);
+    max-width: 700px;
+    max-height: 700px;
+    outline: 0;
+}
+
+
+/* Old */
+
+#sliceEditor {
+    float: left;
+    width: 520pt;
+}
+
+
+
+#visualization {
+    width: 40%;
+    height: 100%;
+    background-color: rgb(36, 36, 36);
+    float: left;
+}
+
+.selectionElement {
+    width: 30pt;
+    height: 30pt;
+    padding: 0pt 0pt 0pt 0pt;
+    user-select: none;
+    cursor: pointer;
+}
+
+.sliceTable {
+    align-self: center;
+    margin: 10pt;
+    padding: 10pt;
+    background-color: rgb(94, 94, 94);
+}
+
+.sliceTable .TopHeader {
+    color: lightblue;
+    text-align: center;
+}
+
+.sliceTable .SideHeader {
+    color: lightblue;
+    text-align: right;
+}

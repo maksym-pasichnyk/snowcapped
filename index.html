@@ -1,0 +1,36 @@
+<head>
+    <title>Minecraft Biome Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="bundle.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div id="menu">
+            <div class="button" id="loadVanillaButton">Load Vanilla Overworld</div>
+            <div class="button" id="openButton">Open</div>
+            <div class="button" id="saveButton">Save</div>
+            <div class="button" id="exportButton">Export</div>
+        </div>
+        <div id="editor">
+            <div id="sidebar"></div>
+            <div id="layoutEditor">
+                <input type="text" id="layoutName" />
+                <canvas tabindex='1' id="layoutEditorCanvas" width="500" height="500">
+                </canvas>
+                <div id="assignSlices" class="hidden">
+                </div>
+            </div>
+            <div class="tooltip hidden" id="layoutEditorTooltip">
+                <div class="name">minecraft:extreme_hills</div>
+                <div class="instructions">
+                    <div class="change">[Left click] to change</div>
+                    <div class="add_alt">[Ctrl]+[Left click] toadd alternate</div>
+                    <div class="remove">[Delete] to remove</div>
+                    <div class="open">[Right click] to open</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div id="visualization"></div>-->
+</body>
