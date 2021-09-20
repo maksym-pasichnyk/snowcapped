@@ -8,9 +8,6 @@ body {
     position: absolute;
 }
 
-.hidden{
-    display: none;
-}
 
 #main{
     display: flex;
@@ -83,21 +80,56 @@ body {
     overflow-x: hidden;
 }
 
-#sidebar .sidebar_entry{
+#sidebar .sidebar_entry:not(.hidden){
     width: 222pt;
     background-color: rgb(68, 67, 67);
-    margin: 5pt;
+    border: 3pt solid rgb(43, 42, 42);
     padding: 5pt;
     user-select: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 #sidebar .sidebar_entry.assign_slices_button{
     height: 40pt;
-    color: white;
     line-height: 40pt;
+    color: white;
     text-align: center;
+    display: block;
+}
 
+
+
+#sidebar .sidebar_entry.slice .grid{
+    height: 60pt;
+}
+
+#sidebar .sidebar_entry.layout .grid{
+    height: 40pt;
+}
+
+#sidebar .sidebar_entry.biome .color_selector, #sidebar .sidebar_entry.vanilla_biome .color_selector{
+    height: 25pt;
+    width: 25pt;
+    min-width: 25pt;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+#sidebar .sidebar_entry.add_layout_button{
+    height: 25pt;
+    color: rgb(189, 189, 189);
+    background-color: rgb(55, 55, 55);
+    line-height: 25pt;
+    text-align: center;
+    display: block;
+}
+
+#sidebar .sidebar_entry:hover{
+    background-color: rgb(100, 96, 90);
 }
 
 #sidebar .sidebar_entry.selected{
@@ -108,28 +140,76 @@ body {
     background-color: #6d6933;
 }
 
-#sidebar .sidebar_entry.slice{
-    height: 60pt;
-}
-
-#sidebar .sidebar_entry.layout{
-    height: 40pt;
-}
-
-#sidebar .sidebar_entry.biome{
-    height: 25pt;
+#sidebar .sidebar_entry.dragged{
+    background-color: rgb(39, 39, 39);
 }
 
 
+#sidebar .sidebar_entry.vanilla_biome{
+    background-color: rgb(20, 20, 20);
+}
+
+#sidebar .sidebar_entry.vanilla_biome:hover{
+    background-color: rgb(48, 45, 40);
+}
+
+#sidebar .sidebar_entry.vanilla_biome.selected{
+    background-color: rgb(68, 65, 62);
+}
+
+#sidebar .sidebar_entry.dragover_up{
+    border-top: 20pt solid rgb(43, 42, 42);
+}
+
+#sidebar .sidebar_entry.dragover_down{
+    border-bottom: 20pt solid rgb(43, 42, 42);
+}
 
 
-#sidebar .sidebar_entry.add_layout_button{
-    height: 25pt;
-    color: rgb(189, 189, 189);
-    background-color: rgb(55, 55, 55);
-    line-height: 25pt;
+#sidebar .label{
+    color: white;
     text-align: center;
+    padding-top: 10pt;
+}
 
+
+#sidebar .sidebar_entry .name{
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin-left: 5pt;
+    vertical-align: middle;
+    color: white;
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    font-size: 12pt;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+
+#sidebar .sidebar_entry .button{
+    width: 10pt;
+    min-width: 10pt;
+    background-color: rgb(32, 32, 32);
+    padding: 5pt;
+    margin-left: 5pt;
+    border-radius: 5pt;
+    display: none;
+}
+
+#sidebar .sidebar_entry:hover:not(.dragged) .button{
+    display: block;
+}
+
+#sidebar .sidebar_entry .button.delete:hover{
+    background-color: rgb(88, 56, 56);
+}
+
+#sidebar .sidebar_entry .button.edit:hover{
+    background-color: rgb(56, 67, 88);
 }
 
 
@@ -150,48 +230,6 @@ body {
     border: 2pt solid black;
     outline: 0pt;
 }
-
-
-#sidebar .sidebar_entry.slice .grid{
-    height: 60pt;
-}
-
-#sidebar .sidebar_entry.layout .grid{
-    height: 40pt;
-}
-
-#sidebar .sidebar_entry.biome .grid{
-    height: 20pt;
-}
-
-#sidebar .sidebar_entry .name{
-    display: inline-block;
-    position: relative;
-    height: 40pt;
-    line-height: 40pt;
-    text-align: left;
-    margin-left: 5pt;
-    vertical-align: middle;
-    color: white;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-#sidebar .sidebar_entry.slice .name{
-    top: -25pt;
-    width: 150pt;
-} 
-
-#sidebar .sidebar_entry.layout .name{
-    top: -15pt;
-    width: 177pt;
-} 
-
-#sidebar .sidebar_entry.biome .name{
-    top: -10pt;
-    width: 197pt;
-} 
 
 /* Assign Slices */
 #assignSlices{
@@ -313,4 +351,9 @@ body {
 .sliceTable .SideHeader {
     color: lightblue;
     text-align: right;
+}
+
+
+.hidden{
+    display: none;
 }
