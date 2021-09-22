@@ -39,6 +39,25 @@ body {
     background-color: rgb(87, 87, 87);
 }
 
+#menu .help{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 0;
+    flex-grow: 1;
+}
+
+#menu .help .help-entry{
+    white-space: nowrap;
+    color: lightgray;
+    padding: 5pt;
+    padding-right: 15pt;
+}
+
+#menu .help .help-entry .b{
+    color: rgb(156, 125, 90);
+}
+
 /* Editor */
 
 #editor {
