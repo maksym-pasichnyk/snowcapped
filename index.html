@@ -9,6 +9,9 @@
     <meta property="og:determiner" content="" />
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
     <script defer src="bundle.js"></script>
 </head>
 
@@ -25,7 +28,7 @@
                 <div id="sidebar_menu">
 
                 </div>
-                <div class="closable_vertical" id="splineDisplay">
+                <div class="closable vertical" id="splineDisplay">
                     <div class="button"></div>
                     <div class="content">
                         <canvas id="splineDisplayCanvas" width="500" height="280"></canvas>
@@ -40,8 +43,31 @@
                 <div id="assignSlices" class="hidden">
                 </div>
             </div>
+            <div class="closable horizontal" id="visualization_panel">
+                <div class="button"></div>
+                <div class="content">
+                    <div id="visualization">
+                        <div id="visualization_map"></div>
+
+                    </div>
+                </div>
+            </div>
             <div class="tooltip hidden" id="layoutEditorTooltip">
-                <div class="name">minecraft:extreme_hills</div>
+                <div class="tooltip_line">
+                    <div class="name">minecraft:extreme_hills</div>
+                </div>
+            </div>
+            <div class="tooltip hidden" id="visualizationTooltip">
+                <div class="tooltip_line">
+                    <div class="name slice">Mid Slice</div>
+                    <img class="icon mode" />
+                </div>
+                <div class="tooltip_line">
+                    <div class="name layout">Middle</div>
+                </div>
+                <div class="tooltip_line">
+                    <div class="name biome">minecraft:extreme_hills</div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,0 +1,1 @@
+{"version":3,"file":"VanillaBiomes.d.ts","sourceRoot":"","sources":["../../../src/main/Vanilla/VanillaBiomes.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,YAAY,EAAE,MAAM,6BAA6B,CAAC;AAI3D,qBAAa,aAAa;IACtB,OAAO,CAAC,MAAM,CAAC,MAAM,CAwFpB;IAED,MAAM,CAAC,qBAAqB,CAAC,OAAO,EAAE,YAAY;IAOlD,OAAO,CAAC,MAAM,CAAC,UAAU;CAI5B"}

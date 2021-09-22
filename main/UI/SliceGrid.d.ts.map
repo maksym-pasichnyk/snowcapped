@@ -1,0 +1,1 @@
+{"version":3,"file":"SliceGrid.d.ts","sourceRoot":"","sources":["../../../src/main/UI/SliceGrid.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,YAAY,EAAE,MAAM,6BAA6B,CAAA;AAC1D,OAAO,EAAE,KAAK,EAAE,MAAM,sBAAsB,CAAA;AAI5C,qBAAa,SAAS;IAClB,MAAM,CAAC,mBAAmB,CAAC,OAAO,EAAE,YAAY,EAAE,KAAK,EAAE,KAAK;CAoCjE"}
