@@ -8,6 +8,7 @@ export declare class VisualizationManger {
     private closeContainer;
     constructor(builder: BiomeBuilder);
     private getIdxs;
+    invalidateIndices(): void;
     refresh(): Promise<void>;
 }
 //# sourceMappingURL=VisualizationManager.d.ts.map

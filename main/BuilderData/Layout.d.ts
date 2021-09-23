@@ -19,6 +19,8 @@ export declare class Layout implements LayoutElement {
     };
     set(temperatureIndex: number, humidityIndex: number, element: string, recordUndo?: boolean): void;
     undo(): void;
+    deleteParam(param: "humidity" | "temperature", id: number): void;
+    splitParam(param: "humidity" | "temperature", id: number): void;
     lookupKey(temperatureIndex: number, humidityIndex: number): string;
     lookup(temperatureIndex: number, humidityIndex: number): LayoutElement;
     lookupRecursive(temperatureIndex: number, humidityIndex: number, mode: Mode): LayoutElement;

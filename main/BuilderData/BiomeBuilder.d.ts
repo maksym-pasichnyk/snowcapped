@@ -62,6 +62,8 @@ export declare class BiomeBuilder {
         layout?: Layout;
         biome?: Biome;
     };
+    deleteParam(param: "humidity" | "temperature" | "continentalness" | "erosion" | "weirdness", id: number): void;
+    splitParam(param: "humidity" | "temperature" | "continentalness" | "erosion" | "weirdness", id: number): void;
     getNumTemperatures(): number;
     getNumHumidities(): number;
     getNumContinentalnesses(): number;

@@ -1,5 +1,6 @@
 import { BiomeBuilder } from "../BuilderData/BiomeBuilder";
 import { AssignSlicesManager } from "./AssignSlicesManager";
+import { GridEditor } from "./GridEditor";
 import { LayoutEditor } from "./LayoutEditor";
 import { SidebarManager } from "./SidebarManager";
 import { SplineDisplayManager } from "./SplineDisplayManager";
@@ -13,6 +14,7 @@ export declare class UI {
     readonly assignSlicesEditor: AssignSlicesManager;
     readonly splineDisplayManager: SplineDisplayManager;
     readonly visualizationManager: VisualizationManger;
+    readonly gridEditor: GridEditor;
     readonly builder: BiomeBuilder;
     selectedElement: string;
     openElement: string;
