@@ -4,9 +4,12 @@ export declare class VisualizationManger {
     private map;
     private biomeSource;
     private biomeLayer;
+    private contourLayer;
     private indicesManger;
     private closeContainer;
+    private toggleIsolinesButton;
     constructor(builder: BiomeBuilder);
+    private getPos;
     private getIdxs;
     invalidateIndices(): void;
     refresh(): Promise<void>;

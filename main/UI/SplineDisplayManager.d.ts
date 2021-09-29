@@ -9,6 +9,7 @@ export declare class SplineDisplayManager {
     setPos(pos?: {
         c: number;
         e: number;
+        w?: number;
     }): void;
     setWeirdnesses(weirdnesses: Climate.Param[]): void;
     refresh(): void;

@@ -4,6 +4,7 @@ import { LayoutElement } from './LayoutElement';
 export declare class Slice {
     allowEdit: boolean;
     name: string;
+    hidden: boolean;
     private array;
     private builder;
     private renderer;

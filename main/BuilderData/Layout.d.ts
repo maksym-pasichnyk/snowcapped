@@ -4,6 +4,7 @@ import { LayoutElement, Mode } from "./LayoutElement";
 export declare class Layout implements LayoutElement {
     allowEdit: boolean;
     name: string;
+    hidden: boolean;
     private array;
     private builder;
     private renderer;
@@ -23,7 +24,7 @@ export declare class Layout implements LayoutElement {
     splitParam(param: "humidity" | "temperature", id: number): void;
     lookupKey(temperatureIndex: number, humidityIndex: number): string;
     lookup(temperatureIndex: number, humidityIndex: number): LayoutElement;
-    lookupRecursive(temperatureIndex: number, humidityIndex: number, mode: Mode): LayoutElement;
+    lookupRecursive(temperatureIndex: number, humidityIndex: number, mode: Mode, stopAtHidden?: boolean): LayoutElement;
     getSize(): [number, number];
     getRenderer(): ElementRenderer;
     getKey(): string;

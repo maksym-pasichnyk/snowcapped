@@ -4,6 +4,7 @@ import { LayoutElement, Mode } from "./LayoutElement";
 export declare class LayoutElementUnassigned implements LayoutElement {
     allowEdit: boolean;
     name: string;
+    hidden: boolean;
     renderer: UnassignedRenderer;
     private constructor();
     static create(builder: BiomeBuilder): LayoutElementUnassigned;

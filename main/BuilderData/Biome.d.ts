@@ -3,6 +3,7 @@ import { BiomeBuilder } from './BiomeBuilder';
 import { LayoutElement, Mode } from './LayoutElement';
 export declare class Biome implements LayoutElement {
     name: string;
+    hidden: boolean;
     readonly allowEdit: boolean;
     color: string;
     private renderer;
