@@ -3,6 +3,7 @@ export declare class MenuManager {
     private static openButton;
     private static saveButton;
     private static exportButton;
+    private static settingsButton;
     static createClickHandlers(): void;
     static toggleAction(name: string, force?: boolean): void;
 }

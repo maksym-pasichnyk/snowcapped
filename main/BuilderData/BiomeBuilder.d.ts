@@ -20,6 +20,10 @@ export declare type MultiNoiseIndexes = {
     h_idx: number;
     t_idx: number;
 };
+export declare type NoiseSetting = {
+    firstOctave: number;
+    amplitudes: number[];
+};
 export declare class BiomeBuilder {
     continentalnesses: [string, Climate.Param][];
     erosions: [string, Climate.Param][];
@@ -34,9 +38,29 @@ export declare class BiomeBuilder {
     biomes: Biome[];
     layoutElementDummy: LayoutElementDummy;
     layoutElementUnassigned: LayoutElementUnassigned;
+    noiseSettings: {
+        "continentalness": NoiseSetting;
+        "erosion": NoiseSetting;
+        "weirdness": NoiseSetting;
+        "humidity": NoiseSetting;
+        "temperature": NoiseSetting;
+        "shift": NoiseSetting;
+    };
+    seed: bigint;
+    dimensionName: string;
     constructor(continentalnesses: [string, Climate.Param][], erosions: [string, Climate.Param][], weirdnesses: [string, Climate.Param][], temperatures: [string, Climate.Param][], humidities: [string, Climate.Param][]);
     loadJSON(json: any): void;
     toJSON(): {
+        dimensionName: string;
+        seed: string;
+        noiseSettings: {
+            continentalness: NoiseSetting;
+            erosion: NoiseSetting;
+            weirdness: NoiseSetting;
+            humidity: NoiseSetting;
+            temperature: NoiseSetting;
+            shift: NoiseSetting;
+        };
         continentalnesses: [string, Climate.Param][];
         erosions: [string, Climate.Param][];
         weirdnesses: [string, Climate.Param, string, "A" | "B"][];

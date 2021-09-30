@@ -11,6 +11,7 @@ export declare class VisualizationManger {
     constructor(builder: BiomeBuilder);
     private getPos;
     private getIdxs;
+    updateNoises(): void;
     invalidateIndices(): void;
     refresh(): Promise<void>;
 }

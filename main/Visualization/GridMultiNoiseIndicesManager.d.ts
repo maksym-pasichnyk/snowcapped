@@ -18,6 +18,7 @@ export declare class GridMultiNoiseIndicesManager {
         idx: MultiNoiseIndexes[][];
         values: MultiNoiseParameters[][];
     };
+    invalidateNoises(): void;
     invalidateIndices(): void;
     private _tileCoordsToKey;
 }
