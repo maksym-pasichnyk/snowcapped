@@ -25,6 +25,7 @@ export declare type NoiseSetting = {
     amplitudes: number[];
 };
 export declare class BiomeBuilder {
+    hasChanges: boolean;
     continentalnesses: [string, Climate.Param][];
     erosions: [string, Climate.Param][];
     weirdnesses: [string, Climate.Param, string, "A" | "B"][];
