@@ -8,11 +8,11 @@ export declare class VanillaBiomes {
         g?: undefined;
         b?: undefined;
     } | {
+        key: string;
         name: string;
         r: number;
         g: number;
         b: number;
-        key?: undefined;
         color?: undefined;
     })[];
     static registerVanillaBiomes(builder: BiomeBuilder): void;
