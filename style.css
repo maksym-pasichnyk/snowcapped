@@ -1,3 +1,88 @@
+body:not(.light){
+    --primary-bg-color: rgb(39, 39, 39);
+    --secondary-bg-color: rgb(29, 29, 29);
+    --tertiary-bg-color: #0c0e0f;
+
+    --map-bg-color: rgb(94, 94, 94);
+
+    --primary-button-color: rgb(68, 67, 67);
+    --primary-button-hover-color: rgb(107, 105, 105);
+    --primary-button-hover-delete-color: rgb(126, 42, 42);
+    --primary-button-open-color: #9c8446;
+    --primary-button-selected-color: #2A9D8F;
+    --primary-button-border-color: rgb(124, 124, 124);
+
+    --secondary-button-color: rgb(32, 32, 32);
+    --secondary-button-hover-color: rgb(61, 61, 61);
+    --secondary-border-color: black;
+
+    --small-button-color: #264653;
+    --small-button-border-color: rgb(12, 26, 65);
+    --small-button-hover-color: #33667a;
+    --small-button-text-color: white;
+
+    --main-text-color: white;
+    --emph-text-color: #c9a038;
+    --secondary-text-color: gray;
+
+    --help-text-color: lightgray;
+    --help-emph-text-color: #8a743d;
+
+
+    --input-color: rgb(46, 46, 46);
+    --input-border-color: rgb(129, 129, 129);
+
+    --water-color: rgb(123, 123, 255);
+    --terrain-color: #838383;
+    --factor-color: red;
+    --roughness-color: blue;
+    --weirdness-indicator-color: #32524e;;
+    --weirdness-indicator-border-color: #4b7e78;
+    color-scheme: dark;
+}
+
+body.light{
+    --primary-bg-color: rgb(255, 255, 255);
+    --secondary-bg-color: rgb(230, 230, 230);
+    --tertiary-bg-color: #264653;
+    --map-bg-color: rgb(182, 182, 182);
+
+    --primary-button-color: rgb(243, 243, 243);
+    --primary-button-hover-color: #8EE1D7;
+    --primary-button-hover-delete-color: rgb(255, 115, 115);
+    --primary-button-open-color: #E9C46A;
+    --primary-button-selected-color: #2A9D8F;
+    --primary-button-border-color: rgb(46, 46, 46);
+
+    --secondary-button-color: rgb(177, 177, 177);
+    --secondary-button-hover-color: #619c95;
+    --secondary-border-color: black;
+
+    --small-button-color: #264653;
+    --small-button-border-color: rgb(12, 26, 65);
+    --small-button-hover-color: #33667a;
+    --small-button-text-color: white;
+
+    --main-text-color: black;
+    --emph-text-color: #660000;
+    --secondary-text-color: gray;
+
+    --help-text-color: white;
+    --help-emph-text-color: #dfaa9d;
+
+    --input-color: white;
+    --input-border-color: rgb(20, 20, 20);
+
+    --water-color: rgb(123, 123, 255);
+    --terrain-color: #182d35;
+    --factor-color: red;
+    --roughness-color: blue;
+    --weirdness-indicator-color: #32524e;;
+    --weirdness-indicator-border-color: #4b7e78;;
+    color-scheme: light;
+}
+
+
 * {
     outline: none;
 }
@@ -23,25 +108,65 @@ body {
 #menu {
     width: 100vw;
     display: flex;
-    background-color: rgb(31, 31, 31);
+    background-color: var(--tertiary-bg-color);
+}
+
+#menu .logo{
+    color: white;
+    padding: 3pt;
+}
+
+#menu .logo img{
+    height: 20pt;
 }
 
 #menu .button {
     height: auto;
-    background-color: rgb(58, 58, 58);
-    padding: 3pt 10pt;
+    background-color: var(--primary-button-color);
+    border-color: var(--primary-button-border-color);
+    border-radius: 3pt;
+    padding: 3pt 5pt;
     margin: 3pt;
-    color: rgb(255, 184, 102);
+    color: var(--emph-text-color);
     cursor: pointer;
+    position: relative;
 }
 
+#menu .button .dropdown{
+    position: absolute;
+    z-index: 100000;
+    background-color: var(--tertiary-bg-color);
+    border-color: var(--secondary-border-color);
+    border-radius: 3pt;
+    top: 22pt;
+    left: 0pt;
+}
+
+#menu .button:not(:hover) .dropdown{
+    display: none;
+}
+
+#menu .button .dropdown .button{
+    white-space: nowrap;
+}
+
+
 #menu .button.open {
-    background-color: #6d6933
+    background-color: var(--primary-button-open-color)
 }
 
 
 #menu .button:hover {
-    background-color: rgb(87, 87, 87);
+    background-color: var(--primary-button-hover-color)
+}
+
+#menu .button img{
+    width: 16pt;
+    height: 16pt;
+}
+
+body:not(.light) #menu .button img{
+    filter: invert();
 }
 
 #menu .help{
@@ -54,13 +179,13 @@ body {
 
 #menu .help .help-entry{
     white-space: nowrap;
-    color: lightgray;
+    color: var(--help-text-color);  /* TODO */
     padding: 5pt;
     padding-right: 15pt;
 }
 
 #menu .help .help-entry .b{
-    color: rgb(156, 125, 90);
+    color: var(--help-emph-text-color); /* TODO */
 }
 
 /* Editor */
@@ -74,7 +199,7 @@ body {
 
 .main_content{
     flex-grow: 1;
-    background-color: rgb(61, 61, 61);
+    background-color: var(--primary-bg-color);
     width: 700pt;
 }
 
@@ -95,9 +220,9 @@ body {
 
 .tooltip .tooltip_line {
     padding: 4pt;
-    background-color: rgb(27, 27, 27);
-    border: 1pt solid rgb(131, 131, 131);
-    color: yellow;
+    background-color: var(--secondary-bg-color);
+    border: 1pt solid var(--secondary-border-color);
+    color: var(--emph-text-color);
     font-size: 12pt;
     white-space: nowrap;
     width: min-content;
@@ -118,7 +243,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #111111;
+    background-color: var(--tertiary-bg-color);
 }
 
 .closable.vertical {
@@ -130,7 +255,7 @@ body {
 }
 
 .closable .button {
-    background-color: gray;
+    background-color: var(--primary-button-color);
 }
 
 .closable.vertical .button {
@@ -168,7 +293,7 @@ body {
 }
 
 .closable .button:hover {
-    background-color: lightgray;
+    background-color: var(--primary-button-hover-color);
 }
 
 .closable.closed .content {
@@ -195,9 +320,10 @@ body {
     width: 250pt;
     min-width: 250pt;
     height: 100%;
-    background-color: rgb(43, 42, 42);
+    background-color: var(--secondary-bg-color);
     display: flex;
     flex-direction: column;
+    border-right: 10pt solid var(--tertiary-bg-color);
 }
 
 #sidebar #sidebar_menu {
@@ -205,27 +331,85 @@ body {
     overflow-x: hidden;
 }
 
-#sidebar #splineDisplay #splineDisplayCanvas {
-    background-color: rgb(43, 42, 42);
+#sidebar #splineDisplay #splineDisplaySvg {
+    background-color: var(--secondary-bg-color);
     height: 140pt;
     width: 100%;
 }
 
+#sidebar #splineDisplay #splineDisplaySvg .water {
+    fill: var(--water-color);
+}
+
+#sidebar #splineDisplay #splineDisplaySvg .terrain {
+    fill: var(--terrain-color);
+}
+
+#sidebar #splineDisplay #splineDisplaySvg .factor {
+    fill: none;
+    stroke: var(--factor-color);
+    stroke-width: 2pt;
+    stroke-dasharray: 5 8;
+    stroke-linecap: round;
+}
+
+
+#sidebar #splineDisplay #splineDisplaySvg .roughness {
+    fill: none;
+    stroke: var(--roughness-color);
+    stroke-width: 2pt;
+    stroke-dasharray: 5 8;
+    stroke-linecap: round;
+}
+
+#sidebar #splineDisplay #splineDisplaySvg .weirdnesses {
+    fill: var(--weirdness-indicator-color);
+    fill-opacity: 0.3;
+    stroke: var(--weirdness-indicator-border-color);
+    stroke-width: 1pt;
+    stroke-dasharray: 5 8;
+    stroke-linecap: round;
+}
+
+#sidebar #splineDisplay #splineDisplaySvg .weirdness {
+    stroke: var(--weirdness-indicator-border-color);
+    stroke-width: 2pt;
+    stroke-dasharray: 5 5;
+    stroke-linecap: round;
+}
+
+
 #sidebar .sidebar_entry:not(.hidden) {
     width: 222pt;
-    background-color: rgb(68, 67, 67);
-    border: 3pt solid rgb(43, 42, 42);
+    background-color: var(--primary-button-color);
+    margin: 3pt;
     padding: 5pt;
     user-select: none;
     cursor: pointer;
     display: flex;
     align-items: center;
+    position: relative;
+    border: 1pt solid var(--primary-button-border-color);
+    border-radius: 3pt;
 }
+
+#sidebar .sidebar_entry:not(.hidden)::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -3pt;
+    left: -3pt;
+    right: -3pt;
+    bottom: -3pt;
+    z-index: 1;
+}
+
+
 
 #sidebar .sidebar_entry.assign_slices_button {
     height: 40pt;
     line-height: 40pt;
-    color: white;
+    color: var(--main-text-color);
     text-align: center;
     display: block;
 }
@@ -259,7 +443,7 @@ body {
 #sidebar .sidebar_header .name {
     font-size: 22;
     padding: 5pt;
-    color: rgb(255, 184, 102);
+    color: var(--emph-text-color);
     flex-grow: 1;
 }
 
@@ -271,8 +455,7 @@ body {
     padding: 5pt;
     border-radius: 5pt;
     margin-right: 10pt;
-    color: rgb(189, 189, 189);
-    background-color: rgb(55, 55, 55);
+    background-color: var(--small-button-color);
     line-height: 25pt;
     text-align: center;
     display: block;
@@ -280,61 +463,70 @@ body {
 }
 
 #sidebar .sidebar_header .button:hover {
-    background-color: rgb(100, 100, 100);
+    background-color: var(--small-button-hover-color)
 }
 
 #sidebar .sidebar_header .button.open {
-    background-color: #6d6933;
+    background-color: var(--primary-button-open-color)
 }
 
 #sidebar .sidebar_header .button.hide.enabled {
-    background-color: rgb(126, 42, 42);
-    display: block;
+    background-color: var(--primary-button-hover-delete-color);
 }
 
 #sidebar .sidebar_header .button.hide:hover {
-    background-color: rgb(88, 56, 56);
+    background-color: var(--primary-button-hover-delete-color);
 }
 
 
 #sidebar .sidebar_entry:hover {
-    background-color: rgb(100, 96, 90);
+    background-color: var(--primary-button-hover-color);
 }
 
 #sidebar .sidebar_entry.selected {
-    background-color: rgb(138, 132, 124);
+    background-color: var(--primary-button-selected-color);
 }
 
 #sidebar .sidebar_entry.open {
-    background-color: #6d6933;
+    background-color: var(--primary-button-open-color);
 }
 
 #sidebar .sidebar_entry.dragged {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--secondary-bg-color);
+    border: 0pt;
 }
 
 #sidebar .sidebar_entry.vanilla_biome {
-    background-color: rgb(20, 20, 20);
+    background-color: var(--secondary-button-color);
 }
 
 #sidebar .sidebar_entry.vanilla_biome:hover {
-    background-color: rgb(48, 45, 40);
+    background-color: var(--secondary-button-hover-color);
 }
 
 #sidebar .sidebar_entry.vanilla_biome.selected {
-    background-color: rgb(68, 65, 62);
+    background-color: var(--primary-button-selected-color);
 }
 
-#sidebar .sidebar_entry.dragover_up {
-    border-top: 20pt solid rgb(43, 42, 42);
+#sidebar .sidebar_entry.dragover_up{
+    margin-top: 20pt;
+}
+
+#sidebar .sidebar_entry.dragover_up::before {
+    top: -20pt;
 }
 
 #sidebar .sidebar_entry.dragover_down {
-    border-bottom: 20pt solid rgb(43, 42, 42);
+    margin-bottom: 20pt;
 }
 
+#sidebar .sidebar_entry.dragover_down::before {
+    bottom: -20pt;
+}
+
+
 #sidebar .label {
-    color: white;
+    color: var(--main-text-color);
     text-align: center;
     padding-top: 10pt;
 }
@@ -345,7 +537,7 @@ body {
     text-align: left;
     margin-left: 5pt;
     vertical-align: middle;
-    color: white;
+    color: var(--main-text-color);
     background-color: rgba(0, 0, 0, 0);
     border: 0;
     font-size: 12pt;
@@ -359,11 +551,13 @@ body {
     width: 10pt;
     height: 10pt;
     min-width: 10pt;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--small-button-color);
     padding: 5pt;
     margin-left: 5pt;
     border-radius: 5pt;
     display: none;
+    position: relative;
+    z-index: 200;
 }
 
 #sidebar .sidebar_entry:hover:not(.dragged) .button {
@@ -371,23 +565,21 @@ body {
 }
 
 #sidebar .sidebar_entry .button.delete:hover {
-    background-color: rgb(88, 56, 56);
+    background-color: var(--primary-button-hover-delete-color);
 }
 
 #sidebar .sidebar_entry .button.edit:hover {
-    background-color: rgb(56, 67, 88);
+    background-color: var(--small-button-hover-color);
 }
 
 #sidebar .sidebar_entry .button.hide.enabled {
-    background-color: rgb(126, 42, 42);
+    background-color: var(--primary-button-hover-delete-color);
     display: block;
 }
 
 #sidebar .sidebar_entry .button.hide:hover {
-    background-color: rgb(88, 56, 56);
+    background-color: var(--primary-button-hover-delete-color);
 }
-
-
 
 #sidebar .spacer {
     width: 222pt;
@@ -401,9 +593,9 @@ body {
     width: 233pt;
     padding: 5pt;
     margin: 5pt;
-    background-color: rgb(36, 36, 36);
-    color: rgb(199, 199, 199);
-    border: 2pt solid black;
+    background-color: var(--input-color);
+    color: var(--main-text-color);
+    border: 2pt solid var(--input-border-color);
     outline: 0pt;
 }
 
@@ -424,7 +616,7 @@ body {
 
 #assignSlices table tr .weirdness_name {
     text-align: right;
-    color: white;
+    color: var(--emph-text-color);
     padding-right: 10pt;
     width: 10pt;
     overflow: visible;
@@ -432,7 +624,10 @@ body {
 }
 
 #assignSlices table tr .slice_icon {
-    background-color: rgb(34, 34, 34);
+    background-color: var(--primary-button-color);
+    border: 1pt solid var(--primary-button-border-color);
+    border-radius: 3pt 0pt 0pt 3pt;
+    border-right: 0;
     padding: 10pt;
 }
 
@@ -441,18 +636,30 @@ body {
 }
 
 #assignSlices table tr .slice_name {
-    background-color: rgb(34, 34, 34);
-    color: white;
+    background-color: var(--primary-button-color);
+    color: var(--main-text-color);
+    border: 1pt solid var(--primary-button-border-color);
+    border-right: 0;
+    border-left: 0;
     width: 250pt;
 }
 
 #assignSlices table tr .slice_mode_select {
-    background-color: rgb(34, 34, 34);
+    background-color: var(--primary-button-color);
+    border: 1pt solid var(--primary-button-border-color);
+    border-left: 0;
+    border-radius: 0pt 3pt 3pt 0pt;
     padding-right: 10pt;
 }
 
 #assignSlices table tr .slice_mode_select img {
     height: 25pt;
+}
+
+#assignSlices table tr:hover .slice_icon,
+#assignSlices table tr:hover .slice_name,
+#assignSlices table tr:hover .slice_mode_select{
+    background-color: var(--primary-button-hover-color);
 }
 
 /* Editor */
@@ -475,8 +682,8 @@ body {
     min-width: 300pt;
     padding: 10pt;
     margin: 5pt;
-    background-color: rgb(36, 36, 36, 0);
-    color: rgb(255, 184, 102);
+    background-color: rgba(0,0,0,0);
+    color: var(--emph-text-color);
     border: 0pt;
     outline: 0pt;
     font-size: 20pt;
@@ -514,14 +721,14 @@ body {
     min-width: 300pt;
     width: 100%;
     height: 100%;
-    background-color: rgb(43, 42, 42);
+    background-color: var(--secondary-bg-color);
     position: relative;
 }
 
 #visualization_map {
     height: 100%;
     width: 100%;
-    background: rgb(82, 82, 82) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25" ><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>');
+    background: var(--map-bg-color) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25" ><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>');
     background-size: 30px 30px;
 }
 
@@ -535,18 +742,18 @@ body {
     top: 62pt;
     left: 9;
     width: 20pt;
-    background-color: #333333;
+    background-color: var(--small-button-color);
     padding: 3pt;
     border-radius: 5pt;
     z-index: 400;
 }
 
 #visualization #toggleIsolinesButton.enabled{
-    background-color: #7e633d;
+    background-color: var(--primary-button-open-color);
 }
 
 #visualization #toggleIsolinesButton:hover{
-    background-color: #666666;
+    background-color: var(--small-button-hover-color);
 }
 
 /* Settings */
@@ -557,14 +764,14 @@ body {
 }
 
 #settings .title{
-    color: rgb(255, 184, 102);
+    color: var(--emph-text-color);
     margin-top: 10pt;
 }
 
 #settings .setting{
     margin: 10pt;
     padding: 5pt;
-    background-color: #333333;
+    background-color: var(--secondary-bg-color);
     border-radius: 5pt;
 }
 
@@ -576,7 +783,7 @@ body {
 
 #settings .setting label .description{
     display: inline-block;
-    color: white;
+    color: var(--main-text-color);
 }
 
 #settings .setting label .description:not(.minor){
@@ -591,9 +798,9 @@ body {
 
 
 #settings .setting label input{
-    color: white;
-    background-color: #222222;
-    border: 2pt solid #111111;
+    color: var(--main-text-color);
+    background-color: var(--input-color);
+    border: 2pt solid var(--input-border-color);
     -moz-appearance: textfield;
     flex-grow: 1;
 }
@@ -616,31 +823,40 @@ body {
 }
 
 #settings button{
-    background-color: #222222;
-    border: 1pt solid black;
+    background-color: var(--small-button-color);
+    border: 1pt solid var(--small-button-border-color);
     border-radius: 5pt;
     height: 20pt;
     padding-left: 5pt;
     padding-right: 5pt;
-    color: white
+    color: var(--small-button-text-color);
+}
+
+#settings button:hover {
+    background-color: var(--small-button-hover-color);
 }
 
 #settings .setting label button{
     width: 20pt;
     margin-right: 5pt;
+    background-color: var(--small-button-color);
+    border-color: var(--input-border-color);
+    border-width: 2pt;
+
 }
 
 #settings .setting label button.delete{
     border-radius: 0pt 5pt 5pt 0pt;
+    border-left-width: 0pt;
 }
 
 
 #settings .setting label button.delete:hover{
-    background-color: #5f3c3c;
+    background-color: var(--primary-button-hover-delete-color);
 }
 
-#settings .setting button:hover{
-    background-color: #354572;
+#settings .setting label button:hover{
+    background-color: var(--small-button-hover-color);
 }
 
 
@@ -654,6 +870,3 @@ body {
     height: 28pt;
 }
 
-#settings button#update:hover {
-    background-color: #316838;
-}

@@ -6,6 +6,9 @@ export declare class SidebarManager {
     private biome_divs;
     private bottom_spacer;
     private search_bar;
+    private dragType;
+    private dragKey;
+    private lastDragedOverDiv;
     constructor(builder: BiomeBuilder);
     refresh(): void;
     private updateBiomeSearch;

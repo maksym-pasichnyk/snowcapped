@@ -6,7 +6,6 @@ export declare class LayoutEditor {
     private title;
     private canvas;
     private mouse_position;
-    private splineCanvas;
     layout: Layout | Slice;
     constructor(builder: BiomeBuilder);
     highlight(x_idx: number, y_idx: number): void;

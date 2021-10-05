@@ -49,7 +49,7 @@ export declare class BiomeBuilder {
     };
     seed: bigint;
     dimensionName: string;
-    constructor(continentalnesses: [string, Climate.Param][], erosions: [string, Climate.Param][], weirdnesses: [string, Climate.Param][], temperatures: [string, Climate.Param][], humidities: [string, Climate.Param][]);
+    constructor(json: any);
     loadJSON(json: any): void;
     toJSON(): {
         dimensionName: string;
