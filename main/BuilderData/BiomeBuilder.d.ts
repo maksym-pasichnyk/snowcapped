@@ -49,6 +49,7 @@ export declare class BiomeBuilder {
     };
     seed: bigint;
     dimensionName: string;
+    useLegacyRandom: boolean;
     constructor(json: any);
     loadJSON(json: any): void;
     toJSON(): {
@@ -62,6 +63,7 @@ export declare class BiomeBuilder {
             temperature: NoiseSetting;
             shift: NoiseSetting;
         };
+        useLegacyRandom: boolean;
         continentalnesses: [string, Climate.Param][];
         erosions: [string, Climate.Param][];
         weirdnesses: [string, Climate.Param, string, "A" | "B"][];
