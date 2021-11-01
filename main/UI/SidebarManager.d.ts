@@ -7,8 +7,14 @@ export declare class SidebarManager {
     private dragType;
     private dragKey;
     private lastDragedOverDiv;
-    private openedElement;
-    private selectedElement;
+    openedElement: {
+        type: string;
+        key?: string;
+    };
+    selectedElement: {
+        type: string;
+        key: string;
+    };
     constructor(builder: BiomeBuilder);
     private resizeBottomSpacer;
     openElement(openElement?: {

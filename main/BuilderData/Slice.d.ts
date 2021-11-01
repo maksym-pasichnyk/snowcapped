@@ -21,6 +21,8 @@ export declare class Slice {
     getSize(): [number, number];
     set(continentalnessIndex: number, erosionIndex: number, element: string): void;
     undo(): void;
+    deleteParam(param: "continentalness" | "erosion", id: number): void;
+    splitParam(param: "continentalness" | "erosion", id: number): void;
     lookupKey(continentalnessIndex: number, erosionIndex: number): string;
     lookup(continentalnessIndex: number, erosionIndex: number): LayoutElement;
     getRenderer(): SliceGridRenderer;

@@ -6,6 +6,11 @@ export declare class GridEditor {
     private splitIcon;
     private xs;
     private ys;
+    private x_param;
+    private y_param;
+    private x_array;
+    private y_array;
+    private hoverHandle;
     constructor(builder: BiomeBuilder);
     private snap;
     private getHandle;

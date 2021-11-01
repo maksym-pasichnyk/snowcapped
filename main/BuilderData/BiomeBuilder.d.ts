@@ -1,5 +1,6 @@
 import { Climate } from "deepslate";
 import { Biome } from "./Biome";
+import { GridSpline } from "./GridSpline";
 import { Layout } from "./Layout";
 import { LayoutElement } from "./LayoutElement";
 import { LayoutElementDummy } from "./LayoutElementDummy";
@@ -31,6 +32,9 @@ export declare class BiomeBuilder {
     weirdnesses: [string, Climate.Param, string, "A" | "B"][];
     temperatures: [string, Climate.Param][];
     humidities: [string, Climate.Param][];
+    splines: {
+        [key: string]: GridSpline;
+    };
     renderedElements: Map<string, LayoutElement | Slice>;
     layoutElements: Map<string, LayoutElement>;
     vanillaBiomes: Map<string, Biome>;
@@ -72,6 +76,44 @@ export declare class BiomeBuilder {
         layouts: Layout[];
         slices: Slice[];
         biomes: Biome[];
+        splines: {
+            offset: {
+                continentalnesses: number[];
+                erosions: number[];
+                splines: {
+                    coordinate: string;
+                    points: {
+                        location: number;
+                        value: number;
+                        derivative: number;
+                    }[];
+                }[][];
+            };
+            factor: {
+                continentalnesses: number[];
+                erosions: number[];
+                splines: {
+                    coordinate: string;
+                    points: {
+                        location: number;
+                        value: number;
+                        derivative: number;
+                    }[];
+                }[][];
+            };
+            jaggedness: {
+                continentalnesses: number[];
+                erosions: number[];
+                splines: {
+                    coordinate: string;
+                    points: {
+                        location: number;
+                        value: number;
+                        derivative: number;
+                    }[];
+                }[][];
+            };
+        };
     };
     getSlice(name: string): LayoutElement | Slice;
     getRenderedElement(name: string): LayoutElement | Slice;

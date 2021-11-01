@@ -5,6 +5,7 @@ import { LayoutEditor } from "./LayoutEditor";
 import { SettingsManager } from "./SettingsManager";
 import { SidebarManager } from "./SidebarManager";
 import { SplineDisplayManager } from "./SplineDisplayManager";
+import { SplineEditor } from "./SplineEditor";
 import { VisualizationManger } from "./VisualizationManager";
 export declare class UI {
     private static instance;
@@ -16,10 +17,9 @@ export declare class UI {
     readonly splineDisplayManager: SplineDisplayManager;
     readonly visualizationManager: VisualizationManger;
     readonly gridEditor: GridEditor;
+    readonly splineEditor: SplineEditor;
     readonly settingsManager: SettingsManager;
     readonly builder: BiomeBuilder;
-    selectedElement: string;
-    openElement: string;
     private constructor();
     refresh(): void;
 }
