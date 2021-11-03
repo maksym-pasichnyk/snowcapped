@@ -2,12 +2,14 @@ export declare class SimpleSpline {
     points: {
         location: number;
         value: number;
-        derivative: number;
+        derivative_left: number;
+        derivative_right: number;
     }[];
     constructor(points: {
         location: number;
         value: number;
-        derivative: number;
+        derivative_left: number;
+        derivative_right: number;
     }[]);
     toJSON(): {
         coordinate: string;
