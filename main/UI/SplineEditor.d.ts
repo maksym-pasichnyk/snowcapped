@@ -3,7 +3,17 @@ export declare class SplineEditor {
     private builder;
     private title;
     zoom: number;
+    private snapModeValue;
+    private snapModeLocation;
+    private dragRow;
+    private dragCol;
+    private dragValue;
+    private dragLocation;
+    private undoStack;
+    private hover;
+    private copy;
     constructor(builder: BiomeBuilder);
+    private dragLocationValue;
     draw(pos?: {
         row: number;
         col: number;

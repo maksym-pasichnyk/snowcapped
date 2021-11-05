@@ -3,8 +3,11 @@ export declare class GridSpline {
     continentalnesses: number[];
     erosions: number[];
     splines: SimpleSpline[][];
+    private undoSteps;
     constructor(continentalnesses: number[], erosions: number[], splines?: SimpleSpline[][]);
     apply(c: number, e: number, w: number): number;
+    undo(): void;
+    addUndoStep(): void;
     private applyErosion;
     private static interpolateZeroGrad;
     toJSON(): {
