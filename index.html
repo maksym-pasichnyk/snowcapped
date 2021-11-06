@@ -64,17 +64,17 @@
                                 src="grid-view.svg">
                             </div>
                             <div class="sidebar_entry_list" id="splines">
-                                <div class="sidebar_entry spline" id="offset" title="Offset">
+                                <div class="sidebar_entry spline" id="offset">
                                     <img class="grid" src="offset-icon.svg">
                                     <span class="name">Offset</span>
                                     <img class="button edit edit_grid_button important" src="grid.svg" title="Edit Grid" />
                                 </div>
-                                <div class="sidebar_entry spline" id="factor" title="Factor">
+                                <div class="sidebar_entry spline" id="factor">
                                     <img class="grid" src="factor-icon.svg">
                                     <span class="name">Factor</span>
                                     <img class="button edit edit_grid_button important" src="grid.svg" title="Edit Grid" />
                                 </div>
-                                <div class="sidebar_entry spline" id="jaggedness" title="Jaggedness">
+                                <div class="sidebar_entry spline" id="jaggedness">
                                     <img class="grid" src="jaggedness-icon.svg">
                                     <span class="name">Jaggedness</span>
                                     <img class="button edit edit_grid_button important" src="grid.svg" title="Edit Grid" />
@@ -165,8 +165,8 @@
                                 id="dimension_name" /></label></div>
                     <div class="setting"> <label><span class="description">Seed:</span><input type="number" step=1
                                 id="seed" /></label></div>
-                    <div class="setting"> <label><span class="description">Use Legacy Random:</span><input
-                                type="checkbox" id="useLegacyRandom" /></label></div>
+                    <!--<div class="setting"> <label><span class="description">Use Legacy Random:</span><input
+                                type="checkbox" id="useLegacyRandom" /></label></div>-->
                     <div class="setting">
                         <label id="continentalness_setting"><span class="description">Continentalness:</span>
                         </label><br />
@@ -182,6 +182,14 @@
                         </label><br />
                         <button id="reset_noises">Reset to Vanilla</button>
                         <button id="copy_noise_settings">Copy Settings to Clipboard</button>
+                    </div>
+                    <div class="setting">
+                        <div class="title">Debug Options</div>
+                        <label id="fix_continentalness_setting"><span class="description">Const. Continentalness:</span><input class="enabled" type="checkbox"/><input class="range" type="range" disabled min="-1.2" max="1.2" step="0.01" oninput="this.nextElementSibling.value = this.value"><output class="display">0</output></label><br />                        
+                        <label id="fix_erosion_setting"><span class="description">Constant Erosion:</span><input class="enabled" type="checkbox"/><input class="range" type="range" disabled min="-1.2" max="1.2" step="0.01" oninput="this.nextElementSibling.value = this.value"><output class="display">0</output></label><br />                        
+                        <label id="fix_weirdness_setting"><span class="description">Constant Weirdness:</span><input class="enabled" type="checkbox"/><input class="range" type="range" disabled min="-1.2" max="1.2" step="0.01" oninput="this.nextElementSibling.value = this.value"><output class="display">0</output></label><br />                        
+                        <label id="fix_temperature_setting"><span class="description">Constant Temperature:</span><input class="enabled" type="checkbox"/><input class="range" type="range" disabled min="-1.2" max="1.2" step="0.01" oninput="this.nextElementSibling.value = this.value"><output class="display">0</output></label><br />                        
+                        <label id="fix_humidity_setting"><span class="description">Constant Humidity:</span><input class="enabled" type="checkbox"/><input class="range" type="range" disabled min="-1.2" max="1.2" step="0.01" oninput="this.nextElementSibling.value = this.value"><output class="display">0</output></label><br />                        
                     </div>
                     <div class="setting">
                         <button id="update">Update Map</button>

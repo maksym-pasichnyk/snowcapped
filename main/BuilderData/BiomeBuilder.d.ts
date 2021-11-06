@@ -51,6 +51,9 @@ export declare class BiomeBuilder {
         "temperature": NoiseSetting;
         "shift": NoiseSetting;
     };
+    fixedNoises: {
+        [key: string]: number;
+    };
     seed: bigint;
     dimensionName: string;
     useLegacyRandom: boolean;

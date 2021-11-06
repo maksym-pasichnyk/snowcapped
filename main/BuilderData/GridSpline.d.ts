@@ -23,9 +23,22 @@ export declare class GridSpline {
         }[][];
     };
     static fromJSON(json: any): GridSpline;
-    export(): {
+    export(fixedNoises: {
+        [key: string]: number;
+    }): number | {
         coordinate: string;
-        points: {
+        points: ({
+            location: number;
+            derivative: number;
+            value: number | {
+                coordinate: string;
+                points: {
+                    location: number;
+                    value: number;
+                    derivative: number;
+                }[];
+            };
+        } | {
             location: number;
             derivative: number;
             value: {
@@ -33,7 +46,7 @@ export declare class GridSpline {
                 points: {
                     location: number;
                     derivative: number;
-                    value: {
+                    value: number | {
                         coordinate: string;
                         points: {
                             location: number;
@@ -43,9 +56,11 @@ export declare class GridSpline {
                     };
                 }[];
             };
-        }[];
+        })[];
     };
     static fromMinecraftJSON(json: any): GridSpline;
+    private interpolateSplinesZeroGrad;
+    getErosionInterpolatedSpline(c_id: number, e_id: number): SimpleSpline;
     createSpline(c_id: number, e_id: number): void;
 }
 //# sourceMappingURL=GridSpline.d.ts.map

@@ -24,5 +24,6 @@ export declare class SimpleSpline {
     private static inversPeaksAndValleys;
     order(): void;
     apply(c: number): number;
+    derivative(c: number, direction?: "left" | "right"): number;
 }
 //# sourceMappingURL=SimpleSpline.d.ts.map
