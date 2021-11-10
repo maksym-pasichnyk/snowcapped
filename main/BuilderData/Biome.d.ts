@@ -1,9 +1,12 @@
-import { ElementRenderer } from '../UI/Renderer/ElementRenderer';
-import { BiomeBuilder } from './BiomeBuilder';
-import { LayoutElement, Mode } from './LayoutElement';
-export declare class Biome implements LayoutElement {
+import { GridElementRenderer } from '../UI/Renderer/ElementRenderer';
+import { BiomeBuilder, MultiNoiseIndexes, PartialMultiNoiseIndexes } from './BiomeBuilder';
+import { GridElement, Mode } from './GridElement';
+import { Layout } from './Layout';
+import { Slice } from './Slice';
+export declare class Biome implements GridElement {
     name: string;
     hidden: boolean;
+    type_id: number;
     readonly allowEdit: boolean;
     color: string;
     private renderer;
@@ -17,10 +20,16 @@ export declare class Biome implements LayoutElement {
         name: string;
         color: string;
     };
-    lookupKey(temperatureIndex: number, humidityIndex: number): string;
-    lookup(temperatureIndex: number, humidityIndex: number): Biome;
-    lookupRecursive(temperatureIndex: number, humidityIndex: number, mode: Mode): Biome;
-    getRenderer(): ElementRenderer;
+    lookupKey(indexes: MultiNoiseIndexes, mode: Mode): string;
+    lookup(indexes: MultiNoiseIndexes, mode: Mode): Biome;
+    lookupRecursive(indexes: MultiNoiseIndexes, mode: Mode): Biome;
+    lookupRecursiveWithTracking(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): {
+        slice: Slice;
+        layout: Layout;
+        biome: Biome;
+    };
+    getRenderer(): GridElementRenderer;
     getKey(): string;
+    has(key: string, _limit: PartialMultiNoiseIndexes): boolean;
 }
 //# sourceMappingURL=Biome.d.ts.map

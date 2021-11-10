@@ -9,7 +9,6 @@ export declare class SplineEditor {
     private dragCol;
     private dragValue;
     private dragLocation;
-    private undoStack;
     private hover;
     private copy;
     constructor(builder: BiomeBuilder);

@@ -1,9 +1,12 @@
-import { ElementRenderer } from "../UI/Renderer/ElementRenderer";
-import { BiomeBuilder } from "./BiomeBuilder";
-import { LayoutElement, Mode } from "./LayoutElement";
-export declare class Layout implements LayoutElement {
+import { GridElementRenderer } from "../UI/Renderer/ElementRenderer";
+import { Biome } from "./Biome";
+import { BiomeBuilder, MultiNoiseIndexes, PartialMultiNoiseIndexes } from "./BiomeBuilder";
+import { GridElement, Mode } from "./GridElement";
+import { Slice } from "./Slice";
+export declare class Layout implements GridElement {
     allowEdit: boolean;
     name: string;
+    type_id: number;
     hidden: boolean;
     private array;
     private builder;
@@ -18,15 +21,24 @@ export declare class Layout implements LayoutElement {
         name: string;
         array: string[][];
     };
-    set(temperatureIndex: number, humidityIndex: number, element: string, recordUndo?: boolean): void;
+    set(indexes: PartialMultiNoiseIndexes, element: string, recordUndo?: boolean): void;
     undo(): void;
     deleteParam(param: "humidity" | "temperature", id: number): void;
     splitParam(param: "humidity" | "temperature", id: number): void;
-    lookupKey(temperatureIndex: number, humidityIndex: number): string;
-    lookup(temperatureIndex: number, humidityIndex: number): LayoutElement;
-    lookupRecursive(temperatureIndex: number, humidityIndex: number, mode: Mode, stopAtHidden?: boolean): LayoutElement;
+    deleteGridElement(key: string): void;
+    lookupKey(indexes: PartialMultiNoiseIndexes, _mode: Mode): string;
+    lookup(indexes: PartialMultiNoiseIndexes, mode: Mode): GridElement;
+    lookupRecursive(indexes: MultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): GridElement;
+    lookupRecursiveWithTracking(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): {
+        slice: Slice;
+        layout: Layout;
+        biome: Biome;
+    };
     getSize(): [number, number];
-    getRenderer(): ElementRenderer;
+    getRenderer(): GridElementRenderer;
+    cellToIds(x: number, y: number): PartialMultiNoiseIndexes;
+    idsToCell(indexes: PartialMultiNoiseIndexes): [number, number] | "all";
     getKey(): string;
+    has(key: string, limit: PartialMultiNoiseIndexes): boolean;
 }
 //# sourceMappingURL=Layout.d.ts.map

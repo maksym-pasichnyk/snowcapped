@@ -2,9 +2,8 @@ import { Climate } from "deepslate";
 import { Biome } from "./Biome";
 import { GridSpline } from "./GridSpline";
 import { Layout } from "./Layout";
-import { LayoutElement } from "./LayoutElement";
-import { LayoutElementDummy } from "./LayoutElementDummy";
-import { LayoutElementUnassigned } from "./LayoutElementUnassigned";
+import { GridElement } from "./GridElement";
+import { GridElementUnassigned } from "./GridElementUnassigned";
 import { Slice } from "./Slice";
 export declare type MultiNoiseParameters = {
     weirdness: number;
@@ -21,6 +20,13 @@ export declare type MultiNoiseIndexes = {
     h_idx: number;
     t_idx: number;
 };
+export declare type PartialMultiNoiseIndexes = {
+    w_idx?: number;
+    c_idx?: number;
+    e_idx?: number;
+    h_idx?: number;
+    t_idx?: number;
+};
 export declare type NoiseSetting = {
     firstOctave: number;
     amplitudes: number[];
@@ -35,14 +41,12 @@ export declare class BiomeBuilder {
     splines: {
         [key: string]: GridSpline;
     };
-    renderedElements: Map<string, LayoutElement | Slice>;
-    layoutElements: Map<string, LayoutElement>;
+    gridElements: Map<string, GridElement>;
     vanillaBiomes: Map<string, Biome>;
     slices: Slice[];
     layouts: Layout[];
     biomes: Biome[];
-    layoutElementDummy: LayoutElementDummy;
-    layoutElementUnassigned: LayoutElementUnassigned;
+    layoutElementUnassigned: GridElementUnassigned;
     noiseSettings: {
         "continentalness": NoiseSetting;
         "erosion": NoiseSetting;
@@ -118,14 +122,11 @@ export declare class BiomeBuilder {
             };
         };
     };
-    getSlice(name: string): LayoutElement | Slice;
-    getRenderedElement(name: string): LayoutElement | Slice;
-    getLayoutElement(name: string): LayoutElement;
-    registerSlice(slice: Slice): void;
-    removeSlice(slice: Slice): void;
+    getSlice(name: string): GridElement;
+    getLayoutElement(name: string): GridElement;
     registerVanillaBiome(biome: Biome): void;
-    registerLayoutElement(element: LayoutElement): void;
-    removeLayoutElement(element: LayoutElement): void;
+    registerGridElement(element: GridElement): void;
+    removeGridElement(element: GridElement): void;
     private findIndex;
     getIndexes(params: MultiNoiseParameters): MultiNoiseIndexes;
     lookup(indexes: MultiNoiseIndexes): {
