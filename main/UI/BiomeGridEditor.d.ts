@@ -1,12 +1,11 @@
 import { BiomeBuilder, PartialMultiNoiseIndexes } from "../BuilderData/BiomeBuilder";
-import { Layout } from "../BuilderData/Layout";
-import { Slice } from "../BuilderData/Slice";
+import { Grid } from "../BuilderData/Grid";
 export declare class BiomeGridEditor {
     private builder;
     private title;
     private canvas;
     private mouse_position;
-    layout: Layout | Slice;
+    layout: Grid;
     constructor(builder: BiomeBuilder);
     highlight(x_idx: number, y_idx: number): void;
     getMousePosition(evt: MouseEvent): {

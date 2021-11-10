@@ -1,10 +1,9 @@
 import { Climate } from "deepslate";
 import { Biome } from "./Biome";
 import { GridSpline } from "./GridSpline";
-import { Layout } from "./Layout";
-import { GridElement } from "./GridElement";
+import { GridElement, Mode } from "./GridElement";
 import { GridElementUnassigned } from "./GridElementUnassigned";
-import { Slice } from "./Slice";
+import { Grid } from "./Grid";
 export declare type MultiNoiseParameters = {
     weirdness: number;
     continentalness: number;
@@ -14,6 +13,7 @@ export declare type MultiNoiseParameters = {
     depth: number;
 };
 export declare type MultiNoiseIndexes = {
+    d_idx: number;
     w_idx: number;
     c_idx: number;
     e_idx: number;
@@ -21,6 +21,7 @@ export declare type MultiNoiseIndexes = {
     t_idx: number;
 };
 export declare type PartialMultiNoiseIndexes = {
+    d_idx?: number;
     w_idx?: number;
     c_idx?: number;
     e_idx?: number;
@@ -33,19 +34,22 @@ export declare type NoiseSetting = {
 };
 export declare class BiomeBuilder {
     hasChanges: boolean;
-    continentalnesses: [string, Climate.Param][];
-    erosions: [string, Climate.Param][];
-    weirdnesses: [string, Climate.Param, string, "A" | "B"][];
-    temperatures: [string, Climate.Param][];
-    humidities: [string, Climate.Param][];
+    continentalnesses: Climate.Param[];
+    erosions: Climate.Param[];
+    weirdnesses: Climate.Param[];
+    temperatures: Climate.Param[];
+    humidities: Climate.Param[];
+    depths: Climate.Param[];
     splines: {
         [key: string]: GridSpline;
     };
     gridElements: Map<string, GridElement>;
     vanillaBiomes: Map<string, Biome>;
-    slices: Slice[];
-    layouts: Layout[];
+    slices: Grid[];
+    layouts: Grid[];
     biomes: Biome[];
+    dimension: Grid;
+    modes: ("A" | "B")[];
     layoutElementUnassigned: GridElementUnassigned;
     noiseSettings: {
         "continentalness": NoiseSetting;
@@ -75,13 +79,16 @@ export declare class BiomeBuilder {
             shift: NoiseSetting;
         };
         useLegacyRandom: boolean;
-        continentalnesses: [string, Climate.Param][];
-        erosions: [string, Climate.Param][];
-        weirdnesses: [string, Climate.Param, string, "A" | "B"][];
-        temperatures: [string, Climate.Param][];
-        humidities: [string, Climate.Param][];
-        layouts: Layout[];
-        slices: Slice[];
+        continentalnesses: Climate.Param[];
+        erosions: Climate.Param[];
+        weirdnesses: Climate.Param[];
+        temperatures: Climate.Param[];
+        humidities: Climate.Param[];
+        depths: Climate.Param[];
+        dimension: Grid;
+        modes: ("A" | "B")[];
+        layouts: Grid[];
+        slices: Grid[];
         biomes: Biome[];
         splines: {
             offset: {
@@ -121,25 +128,31 @@ export declare class BiomeBuilder {
                 }[][];
             };
         };
+        version: number;
     };
     getSlice(name: string): GridElement;
     getLayoutElement(name: string): GridElement;
     registerVanillaBiome(biome: Biome): void;
     registerGridElement(element: GridElement): void;
+    registerSlice(element: Grid): void;
+    registerLayout(element: Grid): void;
+    registerBiome(element: Biome): void;
     removeGridElement(element: GridElement): void;
     private findIndex;
     getIndexes(params: MultiNoiseParameters): MultiNoiseIndexes;
     lookup(indexes: MultiNoiseIndexes): {
-        slice?: Slice;
-        mode?: "A" | "B";
-        layout?: Layout;
+        slice?: Grid;
+        mode?: Mode;
+        layout?: Grid;
         biome?: Biome;
     };
-    deleteParam(param: "humidity" | "temperature" | "continentalness" | "erosion" | "weirdness", id: number): void;
-    splitParam(param: "humidity" | "temperature" | "continentalness" | "erosion" | "weirdness", id: number): void;
+    deleteParam(param: "humidity" | "temperature" | "continentalness" | "erosion" | "weirdness" | "depth", id: number): void;
+    splitParam(param: "humidity" | "temperature" | "continentalness" | "erosion" | "weirdness" | "depth", id: number): void;
     getNumTemperatures(): number;
     getNumHumidities(): number;
     getNumContinentalnesses(): number;
     getNumErosions(): number;
+    getNumWeirdnesses(): number;
+    getNumDepths(): number;
 }
 //# sourceMappingURL=BiomeBuilder.d.ts.map

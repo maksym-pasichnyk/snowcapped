@@ -1,8 +1,7 @@
 import { GridElementRenderer } from '../UI/Renderer/ElementRenderer';
 import { BiomeBuilder, MultiNoiseIndexes, PartialMultiNoiseIndexes } from './BiomeBuilder';
+import { Grid } from './Grid';
 import { GridElement, Mode } from './GridElement';
-import { Layout } from './Layout';
-import { Slice } from './Slice';
 export declare class Biome implements GridElement {
     name: string;
     hidden: boolean;
@@ -24,8 +23,8 @@ export declare class Biome implements GridElement {
     lookup(indexes: MultiNoiseIndexes, mode: Mode): Biome;
     lookupRecursive(indexes: MultiNoiseIndexes, mode: Mode): Biome;
     lookupRecursiveWithTracking(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): {
-        slice: Slice;
-        layout: Layout;
+        slice: Grid;
+        layout: Grid;
         biome: Biome;
     };
     getRenderer(): GridElementRenderer;

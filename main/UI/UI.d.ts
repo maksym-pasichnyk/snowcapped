@@ -1,5 +1,4 @@
 import { BiomeBuilder } from "../BuilderData/BiomeBuilder";
-import { AssignSlicesManager } from "./AssignSlicesManager";
 import { GridEditor } from "./GridEditor";
 import { BiomeGridEditor } from "./BiomeGridEditor";
 import { SettingsManager } from "./SettingsManager";
@@ -13,7 +12,6 @@ export declare class UI {
     static getInstance(): UI;
     readonly sidebarManager: SidebarManager;
     readonly layoutEditor: BiomeGridEditor;
-    readonly assignSlicesEditor: AssignSlicesManager;
     readonly splineDisplayManager: SplineDisplayManager;
     readonly visualizationManager: VisualizationManger;
     readonly gridEditor: GridEditor;

@@ -1,9 +1,8 @@
 import { GridElementRenderer } from '../UI/Renderer/ElementRenderer';
 import { Biome } from './Biome';
 import { BiomeBuilder, MultiNoiseIndexes, PartialMultiNoiseIndexes } from './BiomeBuilder';
+import { Grid } from './Grid';
 import { GridElement, Mode } from './GridElement';
-import { Layout } from './Layout';
-import { Slice } from './Slice';
 export declare class ABElement implements GridElement {
     readonly allowEdit: boolean;
     readonly elementA: string;
@@ -19,8 +18,8 @@ export declare class ABElement implements GridElement {
     lookup(indexes: PartialMultiNoiseIndexes, mode: Mode): GridElement;
     lookupRecursive(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): GridElement;
     lookupRecursiveWithTracking(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): {
-        slice: Slice;
-        layout: Layout;
+        slice: Grid;
+        layout: Grid;
         biome: Biome;
     };
     getElement(mode: "A" | "B"): GridElement;

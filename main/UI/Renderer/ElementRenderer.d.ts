@@ -22,10 +22,10 @@ export declare class UnassignedRenderer implements GridElementRenderer {
 }
 export declare class ABBiomeRenderer implements GridElementRenderer {
     ab_biome: ABElement;
-    private parentConstuctor;
+    private parentType;
     constructor(ab_biome: ABElement);
     setHighlight(x_idx: number, y_idx: number): void;
-    setParentConsturctor(parentConstuctor: Function): void;
+    setParentType(type: string): void;
     draw(ctx: CanvasRenderingContext2D, minX: number, minY: number, sizeX: number, sizeY: number, indexes: PartialMultiNoiseIndexes, indicateRecursive: boolean, isIcon: boolean, gradGridWithBorder: boolean): void;
 }
 //# sourceMappingURL=ElementRenderer.d.ts.map

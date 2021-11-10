@@ -1,20 +1,18 @@
 import { GridElementRenderer } from "../UI/Renderer/ElementRenderer";
 import { Biome } from "./Biome";
 import { MultiNoiseIndexes, PartialMultiNoiseIndexes } from "./BiomeBuilder";
-import { Layout } from "./Layout";
-import { Slice } from "./Slice";
+import { Grid } from "./Grid";
 export declare type Mode = "A" | "B" | "Any";
 export interface GridElement {
     name: string;
     hidden: boolean;
-    type_id: number;
     readonly allowEdit: boolean;
     lookupKey(indexes: MultiNoiseIndexes, mode: Mode): string;
     lookup(indexes: MultiNoiseIndexes, mode: Mode): GridElement;
     lookupRecursive(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): GridElement;
     lookupRecursiveWithTracking(indexes: PartialMultiNoiseIndexes, mode: Mode, stopAtHidden?: boolean): {
-        slice: Slice;
-        layout: Layout;
+        slice: Grid;
+        layout: Grid;
         biome: Biome;
     };
     getRenderer(): GridElementRenderer;
