@@ -141,23 +141,31 @@
                     </div>
                     <div id="layoutEditor">
                         <input type="text" id="layoutName" />
-                        <div id="layoutEditorDiv">
-                            <div style="display:none;">
-                                <img id="aModeImg" src="mode_A.png">
-                                <img id="bModeImg" src="mode_B.png">
+                        <div class="axis_label" id="horizontal_label">Humidity</div>
+                        <div class="label_with_content">
+                            <div class="axis_label"><div id="vertical_label">Temperature</div></div>
+                            <div id="layoutEditorDiv">
+                                <div style="display:none;">
+                                    <img id="aModeImg" src="mode_A.png">
+                                    <img id="bModeImg" src="mode_B.png">
+                                </div>
+                                <canvas tabindex='1' id="layoutEditorCanvas" width="1300" height="1300"></canvas>
                             </div>
-                            <canvas tabindex='1' id="layoutEditorCanvas" width="1300" height="1300"></canvas>
-                        </div>
-                        <div id="gridEditorDiv">
-                            <canvas tabindex='1' id="gridEditorCanvas" width="1300" height="1300"></canvas>
-                        </div>
-                        <div id="splineEditorDiv">
+                            <div id="gridEditorDiv">
+                                <canvas tabindex='1' id="gridEditorCanvas" width="1300" height="1300"></canvas>
+                            </div>
+                            <div id="splineEditorDiv">
+                            </div>
                         </div>
 
                     </div>
                     <div class="tooltip hidden" id="layoutEditorTooltip">
                         <div class="tooltip_line">
                             <div class="name">minecraft:extreme_hills</div>
+                        </div>
+                        <div class="tooltip_line noises">
+                            <div class="noise_x">Continentalness: [-0.3, 0.3]</div>
+                            <div class="noise_y">Erosion: [-0.3, 0.3]</div>
                         </div>
                     </div>
                 </div>
@@ -204,7 +212,11 @@
                 <div class="content">
                     <div id="visualization">
                         <div id="visualization_map"></div>
-                        <img id="toggleIsolinesButton" src="isolines.svg" />
+                        <div class="visualization_controlls">
+                            <img class="map_button" id="toggleIsolinesButton" src="isolines.svg" />
+                            <!--<input class="map_range" type="range" orient="vertical" />-->
+                        </div>
+                        <img class="map_button" id="mapFullscreenButton" src="expand-arrows.svg" />
                     </div>
                 </div>
                 <div class="tooltip hidden" id="visualizationTooltip">

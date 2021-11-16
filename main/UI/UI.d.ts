@@ -18,7 +18,10 @@ export declare class UI {
     readonly splineEditor: SplineEditor;
     readonly settingsManager: SettingsManager;
     readonly builder: BiomeBuilder;
+    private horizonalLabel;
+    private verticalLabel;
     private constructor();
     refresh(): void;
+    setLabels(horizontal: string, vertical: string): void;
 }
 //# sourceMappingURL=UI.d.ts.map

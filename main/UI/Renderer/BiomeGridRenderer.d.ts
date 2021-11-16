@@ -8,10 +8,15 @@ export declare class BiomeGridRenderer implements GridElementRenderer {
     private grid;
     private aImg;
     private bImg;
+    private gridCanvas;
+    private overlayCanvas;
+    private canvasSize;
     constructor(grid: Grid);
     lookup(x: number, y: number): GridElement;
     getSize(): [number, number];
-    draw(ctx: CanvasRenderingContext2D, minX: number, minY: number, sizeX: number, sizeY: number, indexes: PartialMultiNoiseIndexes, indicateRecursive?: boolean, isIcon?: boolean, drawGridWithBorder?: boolean): void;
+    setDirty(): void;
+    private refresh;
+    draw(ctx: CanvasRenderingContext2D, minX: number, minY: number, sizeX: number, sizeY: number, indexes: PartialMultiNoiseIndexes, isIcon?: boolean): void;
     getIdsFromPosition(minX: number, minY: number, sizeX: number, sizeY: number, x: number, y: number): {
         indexes: PartialMultiNoiseIndexes;
         local_t: number;

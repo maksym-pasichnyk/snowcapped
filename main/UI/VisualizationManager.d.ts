@@ -8,6 +8,7 @@ export declare class VisualizationManger {
     private indicesManger;
     private closeContainer;
     private toggleIsolinesButton;
+    private toggleFullscreenButton;
     constructor(builder: BiomeBuilder);
     private getPos;
     private getIdxs;

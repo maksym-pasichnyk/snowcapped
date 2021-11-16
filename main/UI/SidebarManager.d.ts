@@ -25,7 +25,7 @@ export declare class SidebarManager {
         key: string;
     }): void;
     refresh(): void;
-    handleElementDivs(list: (GridElement)[], c: string, selection: d3.Selection<d3.BaseType, unknown, HTMLElement, unknown>, fixed: boolean, use_color_picker: boolean): void;
+    handleElementDivs(list: (GridElement)[], c: string, selection: d3.Selection<d3.BaseType, unknown, HTMLElement, unknown>, gridSize: number, fixed: boolean, use_color_picker: boolean): void;
     dragover<T extends GridElement>(element: HTMLElement, c: string, list: T[], d: T): boolean;
     drop<T extends GridElement>(element: HTMLElement, c: string, list: T[], d: T): boolean;
 }

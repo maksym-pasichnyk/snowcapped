@@ -1,7 +1,7 @@
-import { GridElementRenderer } from "../UI/Renderer/ElementRenderer";
 import { Biome } from "./Biome";
 import { BiomeBuilder, MultiNoiseIndexes, PartialMultiNoiseIndexes } from "./BiomeBuilder";
 import { GridElement, Mode } from "./GridElement";
+import { BiomeGridRenderer } from "../UI/Renderer/BiomeGridRenderer";
 export interface MultiNoiseIndexesAccessor {
     readonly type: "dimension" | "layout" | "slice";
     getSize(bulder: BiomeBuilder): [number, number];
@@ -70,7 +70,7 @@ export declare class Grid implements GridElement {
         layout: Grid;
         biome: Biome;
     };
-    getRenderer(): GridElementRenderer;
+    getRenderer(): BiomeGridRenderer;
     cellToIds(x: number, y: number): PartialMultiNoiseIndexes;
     idsToCell(indexes: PartialMultiNoiseIndexes): [number, number] | "all";
     getKey(): string;
