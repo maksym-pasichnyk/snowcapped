@@ -5,28 +5,28 @@ import { GridElement, Mode } from "./GridElement";
 import { GridElementUnassigned } from "./GridElementUnassigned";
 import { Grid } from "./Grid";
 export declare type MultiNoiseParameters = {
-    weirdness: number;
-    continentalness: number;
-    erosion: number;
-    humidity: number;
-    temperature: number;
-    depth: number;
+    w: number;
+    c: number;
+    e: number;
+    h: number;
+    t: number;
+    d: number;
 };
 export declare type MultiNoiseIndexes = {
-    d_idx: number;
-    w_idx: number;
-    c_idx: number;
-    e_idx: number;
-    h_idx: number;
-    t_idx: number;
+    d: number;
+    w: number;
+    c: number;
+    e: number;
+    h: number;
+    t: number;
 };
 export declare type PartialMultiNoiseIndexes = {
-    d_idx?: number;
-    w_idx?: number;
-    c_idx?: number;
-    e_idx?: number;
-    h_idx?: number;
-    t_idx?: number;
+    d?: number;
+    w?: number;
+    c?: number;
+    e?: number;
+    h?: number;
+    t?: number;
 };
 export declare type NoiseSetting = {
     firstOctave: number;
@@ -62,6 +62,7 @@ export declare class BiomeBuilder {
     fixedNoises: {
         [key: string]: number;
     };
+    vis_y_level: number | "surface";
     seed: bigint;
     dimensionName: string;
     useLegacyRandom: boolean;
@@ -140,7 +141,8 @@ export declare class BiomeBuilder {
     removeGridElement(element: GridElement): void;
     private findIndex;
     getIndexes(params: MultiNoiseParameters): MultiNoiseIndexes;
-    lookup(indexes: MultiNoiseIndexes): {
+    lookupRecursive(indexes: MultiNoiseIndexes): Biome;
+    lookupRecursiveWithTracking(indexes: MultiNoiseIndexes): {
         slice?: Grid;
         mode?: Mode;
         layout?: Grid;
