@@ -4,6 +4,7 @@ export declare class BiomeGridEditor {
     private builder;
     private title;
     private canvas;
+    private backButton;
     private mouse_position;
     layout: Grid;
     constructor(builder: BiomeBuilder);

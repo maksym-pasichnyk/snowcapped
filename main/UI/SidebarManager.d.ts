@@ -6,6 +6,10 @@ export declare class SidebarManager {
     private dragType;
     private dragKey;
     private lastDragedOverDiv;
+    parentElements: {
+        type: string;
+        key?: string;
+    }[];
     openedElement: {
         type: string;
         key?: string;
@@ -19,7 +23,8 @@ export declare class SidebarManager {
     openElement(openElement?: {
         type: string;
         key?: string;
-    }): void;
+    }, asChild?: boolean, __from_back?: boolean): void;
+    back(): void;
     selectElement(selectElement?: {
         type: string;
         key: string;
