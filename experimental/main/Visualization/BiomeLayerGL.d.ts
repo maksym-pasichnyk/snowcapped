@@ -8,6 +8,8 @@ export declare class BiomeLayerGL extends L.GridLayer {
     private renderer;
     private glError;
     private gl;
+    private timer_query_ext;
+    private timer_query;
     private parameterArray;
     private parameterTexture;
     private biomeArray;
@@ -17,9 +19,11 @@ export declare class BiomeLayerGL extends L.GridLayer {
     private biomeTexture;
     private glProgram;
     private CRSBuffer;
-    private Tile2dContexts;
+    private Tiles;
     private tileSize;
+    private resolution;
     private builder;
+    private isCompiled;
     private uniformLocations;
     normalnoises: {
         temperature: NormalNoise;
@@ -31,9 +35,10 @@ export declare class BiomeLayerGL extends L.GridLayer {
     };
     private renderingQueue;
     private isRendering;
-    constructor(visualization_manager: VisualizationManger);
+    constructor(visualization_manager: VisualizationManger, options?: L.GridLayerOptions);
     initialize(options: any): void;
     getGlError(): String | undefined;
+    private updateResolution;
     private loadGLProgram;
     getIdxs(latlng: L.LatLng): {
         idx: MultiNoiseIndexes;
@@ -54,6 +59,7 @@ export declare class BiomeLayerGL extends L.GridLayer {
     _removeTile(key: string): void;
     reRender(change: Change): void;
     addRenderingTask(key: string, callback: () => void): void;
+    private gpu_timer_results;
     doNextRenderingTask(): void;
 }
 //# sourceMappingURL=BiomeLayerGL.d.ts.map
