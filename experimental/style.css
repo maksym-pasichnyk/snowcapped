@@ -852,14 +852,14 @@ body:not(.light) #menu .button img{
     position: relative;
 }
 
-#layoutEditor .main_editor_panel div{
-    width: 100%;
+#layoutEditor .main_editor_panel div.main_editor_panel_div{
+    min-width: 100%;
     position: absolute;
     left: 0;
     top: 0;
 }
 
-#layoutEditor .main_editor_panel div.hidden{
+#layoutEditor .main_editor_panel div.main_editor_panel_div.hidden{
     visibility: hidden;
     display: block !important;
 }
@@ -875,6 +875,12 @@ body:not(.light) #menu .button img{
     height: 100%;
     overflow: hidden;
 }
+
+#layoutEditor #splineEditorDiv .zoomDiv{
+    width: max-content;
+    height: fit-content;
+}
+
 
 #layoutEditor #splineEditorDiv #splineEditorSvg{
     width: calc(100% - 20pt);
