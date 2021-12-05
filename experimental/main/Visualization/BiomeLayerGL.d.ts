@@ -36,6 +36,12 @@ export declare class BiomeLayerGL extends L.GridLayer {
     private renderingQueue;
     private isRendering;
     constructor(visualization_manager: VisualizationManger, options?: L.GridLayerOptions);
+    static initPromise: Promise<{
+        renderer: HTMLCanvasElement;
+        gl: WebGL2RenderingContext;
+        glProgram: WebGLProgram;
+    }>;
+    static preInitalize(allow_sync: boolean): void;
     initialize(options: any): void;
     getGlError(): String | undefined;
     private updateResolution;

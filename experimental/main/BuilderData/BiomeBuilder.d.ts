@@ -67,7 +67,7 @@ export declare class BiomeBuilder {
     seed: bigint;
     dimensionName: string;
     useLegacyRandom: boolean;
-    constructor(json: any);
+    constructor();
     loadJSON(json: any): void;
     toJSON(): {
         dimensionName: string;
