@@ -1,3 +1,2 @@
-export declare const DATA_VERSION = 2;
-export declare const IS_EXPERIMENTAL = true;
+export {};
 //# sourceMappingURL=app.d.ts.map

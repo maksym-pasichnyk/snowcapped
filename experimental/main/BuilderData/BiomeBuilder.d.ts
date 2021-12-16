@@ -35,6 +35,7 @@ export declare type NoiseSetting = {
 export declare type NoiseType = "continentalness" | "weirdness" | "erosion" | "temperature" | "humidity" | "shift";
 export declare class BiomeBuilder {
     hasChanges: boolean;
+    is_experimental_upgraded: boolean;
     continentalnesses: Climate.Param[];
     erosions: Climate.Param[];
     weirdnesses: Climate.Param[];
@@ -66,6 +67,10 @@ export declare class BiomeBuilder {
     vis_y_level: number | "surface";
     seed: bigint;
     dimensionName: string;
+    exportDimension: boolean;
+    noiseSettingsName: string;
+    exportSplines: boolean;
+    exportNoises: boolean;
     useLegacyRandom: boolean;
     constructor();
     loadJSON(json: any): void;
@@ -92,6 +97,10 @@ export declare class BiomeBuilder {
         layouts: Grid[];
         slices: Grid[];
         biomes: Biome[];
+        exportDimension: boolean;
+        exportNoises: boolean;
+        exportSplines: boolean;
+        noiseSettingsName: string;
         splines: {
             offset: {
                 continentalnesses: number[];
