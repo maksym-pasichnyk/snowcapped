@@ -19,7 +19,7 @@
             "purpose": "any maskable"
         }
     ],
-    "start_url": "/experimental/?source=pwa",
+    "start_url": "/experimental/",
     "background_color": "#264653",
     "display": "standalone",
     "scope": "/experimental/",
