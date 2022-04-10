@@ -67,6 +67,7 @@ export declare class BiomeBuilder {
     vis_y_level: number | "surface";
     seed: bigint;
     dimensionName: string;
+    targetVersion: string;
     exportDimension: boolean;
     noiseSettingsName: string;
     exportSplines: boolean;
@@ -97,6 +98,7 @@ export declare class BiomeBuilder {
         layouts: Grid[];
         slices: Grid[];
         biomes: Biome[];
+        targetVersion: string;
         exportDimension: boolean;
         exportNoises: boolean;
         exportSplines: boolean;
@@ -166,5 +168,6 @@ export declare class BiomeBuilder {
     getNumErosions(): number;
     getNumWeirdnesses(): number;
     getNumDepths(): number;
+    getVersionInfo(): import("../Vanilla/VersionInfo").VersionInfo;
 }
 //# sourceMappingURL=BiomeBuilder.d.ts.map

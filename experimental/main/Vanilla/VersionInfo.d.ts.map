@@ -1,0 +1,1 @@
+{"version":3,"file":"VersionInfo.d.ts","sourceRoot":"","sources":["../../../src/main/Vanilla/VersionInfo.ts"],"names":[],"mappings":"AAEA,MAAM,WAAW,WAAW;IACxB,gBAAgB,EAAE,OAAO,CAAC;IAC1B,mBAAmB,EAAE,OAAO,CAAC;IAC7B,SAAS,EAAE,OAAO,CAAA;CACrB;AAED,eAAO,MAAM,YAAY,EAAE;IAAC,CAAC,OAAO,EAAE,MAAM,GAAG,WAAW,CAAA;CAmBzD,CAAA"}
