@@ -1,5 +1,6 @@
 export declare class MenuManager {
-    private static loadVanillaButton;
+    private static loadVanilla118Button;
+    private static loadVanilla119Button;
     private static loadEmptyButton;
     private static openButton;
     private static saveButton;
@@ -10,6 +11,7 @@ export declare class MenuManager {
     private static toggleDarkmodeButton;
     private static fileHandle;
     static fileName: string;
+    static loadVanilla(filename: string): void;
     static createClickHandlers(): void;
     private static confirmUnsavedChanges;
     static updateTitle(): void;
